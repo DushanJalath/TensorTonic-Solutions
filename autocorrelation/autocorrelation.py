@@ -9,12 +9,12 @@ def autocorrelation(series, max_lag):
     var = sum((series-x_bar)**2)
     results = []
 
-    if var == 0:                              # ← constant series guard
+    if var == 0:                              
         return [1.0] + [0.0] * max_lag    
     for lag in range(0,max_lag+1):
         numerator = sum(
             (series[t] - x_bar) * (series[t + lag] - x_bar)
-            for t in range(0, len(series) - lag)         # fix 2: -lag not -lag-1
+            for t in range(0, len(series) - lag)         
         )
         results.append(numerator / var)  
 
